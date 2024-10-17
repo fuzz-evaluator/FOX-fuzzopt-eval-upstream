@@ -1,0 +1,32 @@
+[
+           {
+        "mode": "optfuzz",
+         "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libpng_read_fuzzer/seeds",
+         "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libpng_read_fuzzer/binaries/optfuzz_build/libpng_read_fuzzer",
+         "cmdline": "",
+         "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/libpng_optfuzz_nogllvm/output",
+         "fuzztimeout": "86400",
+         "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+         "jobcount": 10,
+         "afl_margs": "-k -p wd_scheduler",
+         "env": {
+                 "AFL_NO_UI": "1"
+         }
+       },
+       {
+        "mode": "optfuzz_dict",
+         "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libpng_read_fuzzer/seeds",
+         "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libpng_read_fuzzer/binaries/optfuzz_build/libpng_read_fuzzer",
+         "cmdline": "",
+         "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/libpng_optfuzz_nogllvm_dict/output",
+         "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libpng_read_fuzzer/dict/keyval.dict",
+         "dictionary_2": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libpng_read_fuzzer/libpng_read_fuzzer.dict",
+         "fuzztimeout": "86400",
+         "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+         "jobcount": 10,
+         "afl_margs": "-k -p wd_scheduler",
+         "env": {
+                 "AFL_NO_UI": "1"
+         }
+       }
+]

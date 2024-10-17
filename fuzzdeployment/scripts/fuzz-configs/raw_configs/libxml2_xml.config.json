@@ -1,0 +1,78 @@
+[
+{
+    "mode": "baseline",
+    "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/seeds_fuzzbench",
+    "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/binaries/aflpp_build/xml",
+    "cmdline": "",
+    "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/libxml2_xml_aflpp/output",
+    "fuzztimeout": "86400",
+    "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+    "jobcount": 10,
+    "afl_margs": "-t 1000+",
+    "env": {
+            "AFL_NO_UI": "1"
+    }
+    },
+    {
+    "mode": "cmplog",
+    "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/seeds_fuzzbench",
+    "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/binaries/aflpp_build/xml",
+    "cmplog_target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/binaries/cmplog_build/xml",
+    "cmdline": "",
+    "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/libxml2_xml_cmplog/output",
+    "fuzztimeout": "86400",
+    "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+    "jobcount": 10,
+    "afl_margs": "-t 1000+",
+    "env": {
+            "AFL_NO_UI": "1"
+    }
+    },
+    {
+    "mode": "cmplog_dict",
+    "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/seeds_fuzzbench",
+    "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/binaries/aflpp_build/xml",
+    "cmplog_target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/binaries/cmplog_build/xml",
+    "cmdline": "",
+    "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/dict/keyval.dict",
+    "dictionary_2": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/xml.dict",
+    "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/libxml2_xml_cmplog_dict/output",
+    "fuzztimeout": "86400",
+    "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+    "jobcount": 10,
+    "afl_margs": "-t 1000+",
+    "env": {
+            "AFL_NO_UI": "1"
+    }
+    },
+    {
+        "mode": "optfuzz",
+    "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/seeds_fuzzbench",
+         "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/binaries/optfuzz_build/xml",
+         "cmdline": "",
+         "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/libxml2_xml_optfuzz_nogllvm/output",
+         "fuzztimeout": "86400",
+         "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+         "jobcount": 10,
+         "afl_margs": "-k -p wd_scheduler -t 1000+",
+         "env": {
+                 "AFL_NO_UI": "1"
+         }
+       },
+    {
+    "mode": "optfuzz_dict",
+    "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/seeds_fuzzbench",
+         "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/binaries/optfuzz_build/xml",
+    "cmdline": "",
+    "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libxml2_xml/dict/keyval.dict",
+    "dictionary_2": "/workspace/fuzzopt-eval/fuzzdeployment/targets/aflpp_409c_binaries/libxml2_xml/xml.dict",
+    "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/libxml2_xml_optfuzz_nogllvm_dict/output",
+    "fuzztimeout": "86400",
+    "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+    "jobcount": 10,
+    "afl_margs": "-k -p wd_scheduler -t 1000+",
+    "env": {
+            "AFL_NO_UI": "1"
+    }
+    }
+]

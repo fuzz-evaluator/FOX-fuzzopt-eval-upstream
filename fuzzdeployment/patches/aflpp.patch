@@ -1,0 +1,76 @@
+diff --git a/instrumentation/SanitizerCoveragePCGUARD.so.cc b/instrumentation/SanitizerCoveragePCGUARD.so.cc
+index 408353b3..0b5a75e8 100644
+--- a/instrumentation/SanitizerCoveragePCGUARD.so.cc
++++ b/instrumentation/SanitizerCoveragePCGUARD.so.cc
+@@ -109,7 +109,7 @@ SanitizerCoverageOptions OverrideFromCL(SanitizerCoverageOptions Options) {
+   Options.Inline8bitCounters = 0;          //|= ClInline8bitCounters;
+   // Options.InlineBoolFlag = 0; //|= ClInlineBoolFlag;
+   Options.PCTable = false;     //|= ClCreatePCTable;
+-  Options.NoPrune = false;     //|= !ClPruneBlocks;
++  Options.NoPrune = true;     //|= !ClPruneBlocks;
+   Options.StackDepth = false;  //|= ClStackDepth;
+   if (!Options.TracePCGuard && !Options.TracePC &&
+       !Options.Inline8bitCounters && !Options.StackDepth /*&&
+@@ -956,7 +956,7 @@ bool ModuleSanitizerCoverageAFL::InjectCoverage(
+         Value *GuardPtr = IRB.CreateIntToPtr(
+             IRB.CreateAdd(
+                 IRB.CreatePointerCast(FunctionGuardArray, IntptrTy),
+-                ConstantInt::get(IntptrTy, (++special + AllBlocks.size()) * 4)),
++                ConstantInt::get(IntptrTy, (special++ + AllBlocks.size()) * 4)),
+             Int32PtrTy);
+ 
+         LoadInst *Idx = IRB.CreateLoad(IRB.getInt32Ty(), GuardPtr);
+@@ -992,7 +992,7 @@ bool ModuleSanitizerCoverageAFL::InjectCoverage(
+                   IRB.CreatePointerCast(FunctionGuardArray, IntptrTy),
+                   ConstantInt::get(
+                       IntptrTy,
+-                      (cnt_cov + ++local_selects + AllBlocks.size()) * 4)),
++                      (cnt_cov + local_selects++ + AllBlocks.size()) * 4)),
+               Int32PtrTy);
+ 
+           auto GuardPtr2 = IRB.CreateIntToPtr(
+@@ -1000,7 +1000,7 @@ bool ModuleSanitizerCoverageAFL::InjectCoverage(
+                   IRB.CreatePointerCast(FunctionGuardArray, IntptrTy),
+                   ConstantInt::get(
+                       IntptrTy,
+-                      (cnt_cov + ++local_selects + AllBlocks.size()) * 4)),
++                      (cnt_cov + local_selects++ + AllBlocks.size()) * 4)),
+               Int32PtrTy);
+ 
+           result = IRB.CreateSelect(condition, GuardPtr1, GuardPtr2);
+@@ -1037,7 +1037,7 @@ bool ModuleSanitizerCoverageAFL::InjectCoverage(
+                       IRB.CreatePointerCast(FunctionGuardArray, IntptrTy),
+                       ConstantInt::get(
+                           IntptrTy,
+-                          (cnt_cov + ++local_selects + AllBlocks.size()) * 4)),
++                          (cnt_cov + local_selects++ + AllBlocks.size()) * 4)),
+                   Int32PtrTy);
+               x = IRB.CreateInsertElement(GuardPtr1, val1, (uint64_t)0);
+ 
+@@ -1046,7 +1046,7 @@ bool ModuleSanitizerCoverageAFL::InjectCoverage(
+                       IRB.CreatePointerCast(FunctionGuardArray, IntptrTy),
+                       ConstantInt::get(
+                           IntptrTy,
+-                          (cnt_cov + ++local_selects + AllBlocks.size()) * 4)),
++                          (cnt_cov + local_selects++ + AllBlocks.size()) * 4)),
+                   Int32PtrTy);
+               y = IRB.CreateInsertElement(GuardPtr2, val2, (uint64_t)0);
+ 
+@@ -1055,7 +1055,7 @@ bool ModuleSanitizerCoverageAFL::InjectCoverage(
+                 val1 = IRB.CreateIntToPtr(
+                     IRB.CreateAdd(
+                         IRB.CreatePointerCast(FunctionGuardArray, IntptrTy),
+-                        ConstantInt::get(IntptrTy, (cnt_cov + ++local_selects +
++                        ConstantInt::get(IntptrTy, (cnt_cov + local_selects++ +
+                                                     AllBlocks.size()) *
+                                                        4)),
+                     Int32PtrTy);
+@@ -1064,7 +1064,7 @@ bool ModuleSanitizerCoverageAFL::InjectCoverage(
+                 val2 = IRB.CreateIntToPtr(
+                     IRB.CreateAdd(
+                         IRB.CreatePointerCast(FunctionGuardArray, IntptrTy),
+-                        ConstantInt::get(IntptrTy, (cnt_cov + ++local_selects +
++                        ConstantInt::get(IntptrTy, (cnt_cov + local_selects++ +
+                                                     AllBlocks.size()) *
+                                                        4)),
+                     Int32PtrTy);

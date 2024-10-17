@@ -1,0 +1,81 @@
+[
+    {
+    	"mode": "baseline",
+     	"input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/seeds_fuzzbench",
+     	"target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/binaries/aflpp_build/zlib_uncompress_fuzzer",
+     	"cmdline": "",
+     	"output": "/workspace/fuzzopt-eval/fuzzdeployment/results/zlib_aflpp/output",
+     	"fuzztimeout": "86400",
+     	"fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+     	"jobcount": 10,
+     	"afl_margs": "",
+     	"env": {
+             	"AFL_NO_UI": "1"
+     	}
+   	},
+
+   	{
+    	"mode": "cmplog",
+     	"input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/seeds_fuzzbench",
+     	"target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/binaries/aflpp_build/zlib_uncompress_fuzzer",
+	"cmplog_target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/binaries/cmplog_build/zlib_uncompress_fuzzer",
+     	"cmdline": "",
+     	"output": "/workspace/fuzzopt-eval/fuzzdeployment/results/zlib_cmplog/output",
+     	"fuzztimeout": "86400",
+     	"fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+     	"jobcount": 10,
+     	"afl_margs": "",
+     	"env": {
+             	"AFL_NO_UI": "1"
+     	}
+   	},
+	{
+    	"mode": "cmplog_dict",
+     	"input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/seeds_fuzzbench",
+     	"target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/binaries/aflpp_build/zlib_uncompress_fuzzer",
+	"cmplog_target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/binaries/cmplog_build/zlib_uncompress_fuzzer",
+            "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/dict/keyval.dict",
+     	"cmdline": "",
+     	"output": "/workspace/fuzzopt-eval/fuzzdeployment/results/zlib_cmplog_dict/output",
+     	"fuzztimeout": "86400",
+     	"fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+     	"jobcount": 10,
+     	"afl_margs": "",
+     	"env": {
+             	"AFL_NO_UI": "1"
+     	}
+   	},
+
+
+   	{
+    	"mode": "optfuzz",
+     	"input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/seeds_fuzzbench",
+     	"target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/binaries/optfuzz_build/zlib_uncompress_fuzzer",
+     	"cmdline": "",
+     	"output": "/workspace/fuzzopt-eval/fuzzdeployment/results/zlib_optfuzz/output",
+     	"fuzztimeout": "86400",
+     	"fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+     	"jobcount": 10,
+     	"afl_margs": "-k -p wd_scheduler",
+     	"env": {
+             	"AFL_NO_UI": "1"
+     	}
+   	},
+
+
+   	{
+    	"mode": "optfuzz_dict",
+     	"input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/seeds_fuzzbench",
+     	"target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/binaries/optfuzz_build/zlib_uncompress_fuzzer",
+     	"cmdline": "",
+     	"output": "/workspace/fuzzopt-eval/fuzzdeployment/results/zlib_optfuzz_dict/output",
+            "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/zlibunc/dict/keyval.dict",
+     	"fuzztimeout": "86400",
+     	"fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+     	"jobcount": 10,
+     	"afl_margs": "-k -p wd_scheduler",
+     	"env": {
+             	"AFL_NO_UI": "1"
+     	}
+   	}
+]

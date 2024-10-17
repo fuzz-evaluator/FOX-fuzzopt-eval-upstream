@@ -1,0 +1,76 @@
+[
+    {
+        "mode": "baseline",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/seeds_fuzzbench",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/binaries/aflpp_build/fuzz-link-parser",
+        "cmdline": "",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/systemd_aflpp/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    },
+    {
+        "mode": "cmplog",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/seeds_fuzzbench",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/binaries/aflpp_build/fuzz-link-parser",
+        "cmplog_target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/binaries/cmplog_build/fuzz-link-parser",
+        "cmdline": "",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/systemd_cmplog/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    },
+    {
+        "mode": "optfuzz",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/seeds_fuzzbench",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/binaries/optfuzz_build/fuzz-link-parser",
+        "cmdline": "",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/systemd_optfuzz/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "-k -p wd_scheduler",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    },
+    {
+        "mode": "cmplog_dict",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/seeds_fuzzbench",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/binaries/aflpp_build/fuzz-link-parser",
+        "cmplog_target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/binaries/cmplog_build/fuzz-link-parser",
+        "cmdline": "",
+        "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/dict/keyval.dict",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/systemd_cmplog_dict/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    },
+    {
+        "mode": "optfuzz_dict",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/seeds_fuzzbench",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/binaries/optfuzz_build/fuzz-link-parser",
+        "cmdline": "",
+        "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/systemd/dict/keyval.dict",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/systemd_optfuzz_dict/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "-k -p wd_scheduler",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    }
+]

@@ -1,0 +1,17 @@
+
+[{
+    "mode": "optfuzz_dict",
+    "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/seeds",
+    "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/binaries/optfuzz_build/tiffcrop/tiffcrop",
+    "cmdline": "@@ out_1",
+    "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/dict/keyval.dict",
+    "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/tiffcrop_optfuzz_dict_nogllvm/output",
+    "fuzztimeout": "86400",
+    "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+    "jobcount": 10,
+    "afl_margs": "-k -p wd_scheduler",
+    "env": {
+            "AFL_NO_UI": "1"
+    }
+  }
+  ]

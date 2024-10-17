@@ -1,0 +1,76 @@
+[
+    {
+        "mode": "baseline",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/seeds",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/binaries/aflpp_build/tiffcrop/tiffcrop",
+        "cmdline": "@@ out_1",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/tiffcrop_aflpp/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    },
+    {
+        "mode": "cmplog",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/seeds",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/binaries/aflpp_build/tiffcrop/tiffcrop",
+        "cmplog_target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/binaries/cmplog_build/tiffcrop/tiffcrop",
+        "cmdline": "@@ out_1",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/tiffcrop_cmplog/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    },
+    {
+        "mode": "optfuzz",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/seeds",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/binaries/optfuzz_build/tiffcrop/tiffcrop",
+        "cmdline": "@@ out_1",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/tiffcrop_optfuzz/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "-k -p wd_scheduler",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    },
+    {
+        "mode": "cmplog_dict",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/seeds",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/binaries/aflpp_build/tiffcrop/tiffcrop",
+        "cmplog_target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/binaries/cmplog_build/tiffcrop/tiffcrop",
+        "cmdline": "@@ out_1",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/tiffcrop_cmplog_dict/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/AFLplusplus/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "",
+        "env": {
+            "AFL_NO_UI": "1"
+        },
+        "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/dict/keyval.dict"
+    },
+    {
+        "mode": "optfuzz_dict",
+        "input": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/seeds",
+        "target": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/binaries/optfuzz_build/tiffcrop/tiffcrop",
+        "cmdline": "@@ out_1",
+        "dictionary": "/workspace/fuzzopt-eval/fuzzdeployment/targets/libtiff/dict/keyval.dict",
+        "output": "/workspace/fuzzopt-eval/fuzzdeployment/results/tiffcrop_optfuzz_dict/output",
+        "fuzztimeout": "86400",
+        "fuzzer": "/workspace/OptFuzzer/afl-fuzz",
+        "jobcount": 10,
+        "afl_margs": "-k -p wd_scheduler",
+        "env": {
+            "AFL_NO_UI": "1"
+        }
+    }
+]

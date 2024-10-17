@@ -1,0 +1,13 @@
+diff --git a/instrumentation/SanitizerCoveragePCGUARD.so.cc b/instrumentation/SanitizerCoveragePCGUARD.so.cc
+index 588eb950..e54b1372 100644
+--- a/instrumentation/SanitizerCoveragePCGUARD.so.cc
++++ b/instrumentation/SanitizerCoveragePCGUARD.so.cc
+@@ -113,7 +113,7 @@ namespace {
+ SanitizerCoverageOptions OverrideFromCL(SanitizerCoverageOptions Options) {
+ 
+   Options.CoverageType = SanitizerCoverageOptions::SCK_Edge;
+-  // Options.NoPrune = true;
++  Options.NoPrune = true;
+   Options.TracePCGuard = true;  // TracePCGuard is default.
+   return Options;
+ 
